@@ -1,0 +1,54 @@
+import 'package:speech_to_text/speech_to_text.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'G-Spirout',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Bienvenue sur G-Spirout'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ConversationPage()),
+            );
+          },
+          child: Text('Démarrer la conversation'),
+        ),
+      ),
+    );
+  }
+}
+```
+
+2. *Reconnaissance Vocale avec Google Speech-to-Text :*
+
+Ajoute la fonctionnalité de reconnaissance vocale avec le package `speech_to_text`.
+
+```dart
+import 'package:speech_to_text/speech_to_text.dart';
+
+class VoiceToText extends StatefulWidget {
+  @override
+  _VoiceToTextState createState() => _VoiceToTextState();
+}
+
+class _VoiceToTextState extends State<VoiceToText> {
+  SpeechToText _speech = SpeechToText();
