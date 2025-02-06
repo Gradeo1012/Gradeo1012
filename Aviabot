@@ -1,0 +1,27 @@
+import random
+import matplotlib.pyplot as plt
+
+# Simuler des données historiques (remplacez cela par vos données réelles)
+historical_data = [random.uniform(1.0, 10.0) for _ in range(100)]
+
+# Fonction pour analyser les tendances
+def analyze_trends(data):
+    average = sum(data) / len(data)
+    max_value = max(data)
+    min_value = min(data)
+    
+    print(f"Average multiplier: {average:.2f}")
+    print(f"Max multiplier: {max_value:.2f}")
+    print(f"Min multiplier: {min_value:.2f}")
+    
+    # Tracer les données historiques
+    plt.plot(data, label="Multiplicateurs")
+    plt.axhline(y=average, color='r', linestyle='--', label="Moyenne")
+    plt.xlabel("Tentative")
+    plt.ylabel("Multiplicateur")
+    plt.title("Analyse des tendances historiques")
+    plt.legend()
+    plt.show()
+
+# Exécuter l'analyse
+analyze_trends(historical_data)
